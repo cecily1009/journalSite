@@ -40,7 +40,7 @@ Journal Garden is a Blog-style MERN-Stack web application for users to keep life
   - [React](https://github.com/facebook/react)
   - [Redux](https://github.com/reduxjs/redux)
   - [Font Awesome](https://fontawesome.com/)
-  - [Semantic-ui-React] (https://react.semantic-ui.com/usage)
+  - [Semantic-ui-React](https://react.semantic-ui.com/usage)
   - [React-Bootstrap](https://react-bootstrap.github.io/)
   - [moment](https://momentjs.com/)
   - [React-Router-Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
