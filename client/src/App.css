@@ -205,7 +205,7 @@ hr:before {
 
 .green-border-focus .form-control:focus {
     border: 1px solid #8bc34a;
-    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, 0.25);
 }
 
 .imgs {

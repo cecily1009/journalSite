@@ -13,7 +13,7 @@ export const NavbarMenu = ({ auth: { isAuthenticated, loading }, logout }) => {
           My Profile
         </Button>
       </Nav.Link>
-      <Nav.Link onClick={logout} href='#!'>
+      <Nav.Link onClick={logout} href='/#'>
         <Button inverted color='grey'>
           Logout
         </Button>
@@ -36,7 +36,6 @@ export const NavbarMenu = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
   return (
     <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
-      <a name='top'></a>
       <Navbar.Brand as={Link} to='/'>
         <i className='icon book'></i>Journals Site
       </Navbar.Brand>
@@ -56,6 +55,7 @@ export const NavbarMenu = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Nav>
         <Nav>{!loading && isAuthenticated ? authLink : guestLink}</Nav>
       </Navbar.Collapse>
+      <a name='top'></a>
     </Navbar>
   );
 };
