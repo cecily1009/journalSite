@@ -14,7 +14,7 @@ import {
 //Get all users' public journals
 export const getPublicJournals = () => async (dispatch) => {
   try {
-    const res = await axios.get('/journals');
+    const res = await axios.get('journals');
     dispatch({
       type: GET_PUBLIC_JOURNALS,
       payload: res.data,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Button } from 'semantic-ui-react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -53,7 +53,11 @@ export const NavbarMenu = ({ auth: { isAuthenticated, loading }, logout }) => {
             Manage your Journals
           </Nav.Link>
         </Nav>
-        <Nav>{!loading && isAuthenticated ? authLink : guestLink}</Nav>
+        <Nav>
+          {!loading && (
+            <Fragment>{isAuthenticated ? authLink : guestLink}</Fragment>
+          )}
+        </Nav>
       </Navbar.Collapse>
       <a name='top'></a>
     </Navbar>
