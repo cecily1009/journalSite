@@ -34,6 +34,5 @@ app.use('/users', require('./routes/users'));
 app.use('/auth', require('./routes/auth'));
 app.use('/journals', require('./routes/journals'));
 app.use('/profile', require('./routes/profile'));
-app.listen(process.env.PORT || 5000, process.env.IP, () =>
-  console.log('Server started...')
-);
+
+app.listen(process.env.PORT || 5000, () => console.log('Server started...'));
