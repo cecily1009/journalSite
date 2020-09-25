@@ -220,3 +220,23 @@ hr:before {
     right: 20px;
     z-index: 99;
 }
+
+.ui.image img,
+.ui.image svg {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+.ui.tiny.image,
+.ui.tiny.images .image,
+.ui.tiny.images img,
+.ui.tiny.images svg {
+    width: 100px;
+    height: 100px;
+    font-size: 0.85714286rem;
+}
+
+.journal_author:hover {
+    font-size: 20px;
+}

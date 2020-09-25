@@ -29,14 +29,14 @@ const PublicProfile = ({
       ) : (
         <Fragment>
           <hr />
-          <Link to='/journals'>
+          <a href='/journals'>
             <Button inverted color='blue' animated>
               <Button.Content visible>Back To Public Jounals</Button.Content>
               <Button.Content hidden>
                 <Icon name='arrow left' />
               </Button.Content>
             </Button>
-          </Link>
+          </a>
           <div className='login well well-lg'>
             <Header as='h2' color='blue' textAlign='center'>
               <Header.Content>
@@ -129,7 +129,7 @@ const PublicProfile = ({
                   </Grid.Column>
                   <Grid.Column width={3}>
                     <p className='lead'>picture: </p>
-                    <Image src={profile.owner.avatar} />
+                    <Image src={profile.owner.avatar.url} />
                   </Grid.Column>
                 </Grid.Row>
               </Grid>

@@ -36,7 +36,6 @@ router.get('/:user_id', async (req, res) => {
     const profile = await Profile.findOne({
       owner: req.params.user_id,
     }).populate('owner', ['username', '_id', 'avatar']);
-
     res.json(profile);
   } catch (err) {
     console.error(err.message);

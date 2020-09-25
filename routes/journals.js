@@ -48,11 +48,12 @@ router.get('/:id', async (req, res) => {
   try {
     const journal = await Journal.findById(req.params.id).populate('author', [
       'username',
+      'avatar',
     ]);
-
     if (!journal) {
       return res.status(404).json({ msg: 'Journal not found' });
     }
+
     res.json(journal);
   } catch (err) {
     if (err.kind === 'ObjectId') {

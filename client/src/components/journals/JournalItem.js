@@ -17,7 +17,7 @@ export const JournalItem = ({
               <Reveal animated='rotate'>
                 <Reveal.Content visible>
                   <Item.Image
-                    className='item-img'
+                    className='item-img img-style'
                     src={image}
                     size='tiny'
                     circular
@@ -25,7 +25,7 @@ export const JournalItem = ({
                 </Reveal.Content>
                 <Reveal.Content hidden>
                   <Link to={`/profile/user/${author._id}`}>
-                    <Image circular size='tiny' src={author.avatar} />
+                    <Image circular size='tiny' src={author.avatar.url} />
                   </Link>
                 </Reveal.Content>
               </Reveal>

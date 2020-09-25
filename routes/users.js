@@ -4,6 +4,7 @@ const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { v4: uuidv4 } = require('uuid');
 const { check, validationResult } = require('express-validator');
 const normalize = require('normalize-url');
 const User = require('../models/User');
@@ -36,15 +37,18 @@ router.post(
       }
 
       //Get users gravatar
-
-      const avatar = normalize(
-        gravatar.url(email, {
-          s: '200',
-          r: 'pg',
-          d: 'mm',
-        }),
-        { forceHttps: true }
-      );
+      const id = uuidv4();
+      const avatar = {
+        id: id,
+        url: normalize(
+          gravatar.url(email, {
+            s: '200',
+            r: 'pg',
+            d: 'mm',
+          }),
+          { forceHttps: true }
+        ),
+      };
 
       user = new User({
         username,

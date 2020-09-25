@@ -116,7 +116,7 @@ const Profile_Me = ({
                       </Grid.Column>
                       <Grid.Column width={3}>
                         <p className='lead'>picture: </p>
-                        <Image src={profile.owner.avatar} />
+                        <Image src={profile.owner.avatar.url} />
                       </Grid.Column>
                     </Grid.Row>
                   </Grid>

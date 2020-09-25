@@ -50,7 +50,9 @@ const Journal = ({
               <Card.Img className='imgs' variant='top' src={journal.image} />
               <Card.Body as='div'>
                 <Link to={`/profile/user/${journal.author._id}`}>
-                  <Card.Title>-- by {journal.author.username}</Card.Title>
+                  <Card.Title className='journal_author'>
+                    -- by {journal.author.username}
+                  </Card.Title>
                 </Link>
                 <Card.Subtitle className='mb-2 text-muted'>
                   posted on{' '}

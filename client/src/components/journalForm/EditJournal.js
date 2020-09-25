@@ -28,6 +28,7 @@ const EditJournal = ({
   }, [loading, getJournal]);
 
   const { title, image, content, setPrivate } = formData;
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -71,20 +72,6 @@ const EditJournal = ({
 
         <Form.Group as={Row}>
           <Form.Label column sm={2}>
-            Image Link
-          </Form.Label>
-          <Col sm={10}>
-            <input
-              className='formControl'
-              name='image'
-              value={image}
-              placeholder='image'
-              onChange={(e) => onChange(e)}
-            />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row}>
-          <Form.Label column sm={2}>
             Content
           </Form.Label>
           <Col sm={10} className='green-border-focus'>
@@ -114,6 +101,18 @@ const EditJournal = ({
               <option>true</option>
               <option>false</option>
             </Form.Control>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row}>
+          <Form.Label column sm={2}>
+            Upload Image
+          </Form.Label>
+          <Col sm={10}>
+            <Form.File
+              name='image'
+              value={image.url}
+              onChange={(e) => onChange(e)}
+            ></Form.File>
           </Col>
         </Form.Group>
         <Row>
