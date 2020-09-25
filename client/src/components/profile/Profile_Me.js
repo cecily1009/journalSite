@@ -29,14 +29,14 @@ const Profile_Me = ({
         <Fragment>
           <hr />
 
-          <a href='/journals/mine'>
+          <Link to='/journals/mine'>
             <Button inverted color='blue' animated>
               <Button.Content visible>Back To Jounals</Button.Content>
               <Button.Content hidden>
                 <Icon name='arrow left' />
               </Button.Content>
             </Button>
-          </a>
+          </Link>
           <div className='login well well-lg'>
             <Header as='h2' textAlign='center' inverted color='blue'>
               <Icon name='user' />

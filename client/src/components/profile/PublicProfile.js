@@ -26,6 +26,17 @@ const PublicProfile = ({
     <Fragment>
       {profile === null || loading ? (
         <Container>
+          <hr />
+
+          <Link to='/journals'>
+            <Button inverted color='blue' animated>
+              <Button.Content visible>Back To Public Jounals</Button.Content>
+              <Button.Content hidden>
+                <Icon name='arrow left' />
+              </Button.Content>
+            </Button>
+          </Link>
+          <hr />
           <h1 className='no_profile_page'>
             This user has not set up profile yet &nbsp;&nbsp;&nbsp;
             <Spinner animation='grow' variant='primary' size='sm' />
