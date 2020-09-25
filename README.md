@@ -62,3 +62,7 @@ Journal Garden is a Blog-style MERN-Stack web application for users to keep life
   - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
   - [gravatar](https://en.gravatar.com/)
   - [normalize-url](https://www.npmjs.com/package/normalize-url)
+# Platforms
+
+- [Cloudinary](https://www.npmjs.com/package/cloudinary)
+- [Heroku](https://heroku.com/)
