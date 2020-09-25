@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { updateJournal, getJournal } from '../../actions/journal';
-import { Form, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col, Spinner } from 'react-bootstrap';
 import { Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -29,6 +29,24 @@ const EditJournal = ({
 
   const { title, image, content, setPrivate } = formData;
 
+  const [uploaded, setUploaded] = useState(false);
+  const uploadpic = async (e) => {
+    console.log(e.target.files[0]);
+    const image_data = new FormData();
+    image_data.append('file', e.target.files[0]);
+    image_data.append('upload_preset', 'journalGarden');
+    setUploaded(true);
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/journalsite/image/upload',
+      {
+        method: 'post',
+        body: image_data,
+      }
+    );
+    const file = await res.json();
+    setFormData({ ...formData, image: file.secure_url });
+    setUploaded(false);
+  };
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -39,14 +57,14 @@ const EditJournal = ({
   return (
     <Fragment>
       <hr />
-      <Link to='/journals'>
+      <a href='/journals'>
         <Button basic color='blue' animated>
           <Button.Content visible>Back To Public Jounals</Button.Content>
           <Button.Content hidden>
             <Icon name='arrow left' />
           </Button.Content>
         </Button>
-      </Link>
+      </a>
       <div className='login well well-lg'>
         <div className='line'></div>
         <h2>Edit Journal: {journal.title}</h2>
@@ -108,11 +126,25 @@ const EditJournal = ({
             Upload Image
           </Form.Label>
           <Col sm={10}>
-            <Form.File
-              name='image'
-              value={image.url}
-              onChange={(e) => onChange(e)}
-            ></Form.File>
+            <Form.File name='image' onChange={uploadpic}></Form.File>
+
+            {uploaded ? (
+              <Fragment>
+                <Spinner animation='border' variant='secondary' />
+
+                <img
+                  src={image}
+                  alt=''
+                  style={{ width: '150px', height: '150px' }}
+                ></img>
+              </Fragment>
+            ) : (
+              <img
+                src={image}
+                alt=''
+                style={{ width: '150px', height: '150px' }}
+              ></img>
+            )}
           </Col>
         </Form.Group>
         <Row>

@@ -1,28 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const router = express.Router();
-//const multer = require('multer');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const Profile = require('../models/Profile');
 const auth = require('../middleware/auth');
 const Journal = require('../models/Journal');
-
-// =========== Image Upload Configuration =============
-//multer config
-// const storage = multer.diskStorage({
-//   filename: function (req, file, callback) {
-//     callback(null, Date.now() + file.originalname);
-//   },
-// });
-// const imageFilter = (req, file, cb) => {
-//   // accept image files only
-//   if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
-//     return cb(new Error('Only image files are allowed!'), false);
-//   }
-//   cb(null, true);
-// };
-// const upload = multer({ storage: storage, fileFilter: imageFilter });
 
 //@route get journals
 //@desc get curr user's all journals
@@ -107,17 +90,19 @@ router.post(
       const profile = await Profile.findOne({
         owner: req.user.id,
       });
+
       const newJournal = new Journal({
         title: req.body.title,
         content: req.body.content,
         author: req.user.id,
-        image: req.body.image,
+        image: req.body.image !== '' ? req.body.image : Journal.image,
         setPrivate:
           profile !== null && profile.allPrivate === 'true'
             ? 'true'
-            : req.body.setPrivate,
+            : req.body.setPrivate !== ''
+            ? req.body.setPrivate
+            : Journal.setPrivate,
       });
-
       const journal = await newJournal.save();
       if (profile !== null) {
         profile.journals.push(journal);
@@ -195,12 +180,14 @@ router.put(
       journal.author = req.user.id;
       journal.title = req.body.title;
       journal.content = req.body.content;
-      journal.setPrivate =
-        profile !== null && profile.allPrivate === 'true'
-          ? 'true'
-          : req.body.setPrivate;
-
-      await journal.save();
+      (journal.image = req.body.image !== '' ? req.body.image : Journal.image),
+        (journal.setPrivate =
+          profile !== null && profile.allPrivate === 'true'
+            ? 'true'
+            : req.body.setPrivate !== ''
+            ? req.body.setPrivate
+            : Journal.setPrivate),
+        await journal.save();
       if (profile !== null) {
         profile.journals.push(journal);
         await profile.save();

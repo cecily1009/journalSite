@@ -29,14 +29,14 @@ const Profile_Me = ({
         <Fragment>
           <hr />
 
-          <Link to='/journals/mine'>
+          <a href='/journals/mine'>
             <Button inverted color='blue' animated>
               <Button.Content visible>Back To Jounals</Button.Content>
               <Button.Content hidden>
                 <Icon name='arrow left' />
               </Button.Content>
             </Button>
-          </Link>
+          </a>
           <div className='login well well-lg'>
             <Header as='h2' textAlign='center' inverted color='blue'>
               <Icon name='user' />
@@ -116,7 +116,7 @@ const Profile_Me = ({
                       </Grid.Column>
                       <Grid.Column width={3}>
                         <p className='lead'>picture: </p>
-                        <Image src={profile.owner.avatar.url} />
+                        <Image src={profile.owner.avatar} />
                       </Grid.Column>
                     </Grid.Row>
                   </Grid>

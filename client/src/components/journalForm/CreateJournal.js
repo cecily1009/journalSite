@@ -2,19 +2,38 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { addJournal } from '../../actions/journal';
 import { connect } from 'react-redux';
-import { Form, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col, Spinner } from 'react-bootstrap';
 import { Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CreateJournal = ({ addJournal, history }) => {
   const [formData, setFormData] = useState({
     title: '',
-    image: '',
     content: '',
     setPrivate: '',
+    image: '',
   });
+  const [uploaded, setUploaded] = useState(false);
 
-  const { title, image, content, setPrivate } = formData;
+  const { title, content, image, setPrivate } = formData;
+
+  const uploadpic = async (e) => {
+    console.log(e.target.files[0]);
+    const image_data = new FormData();
+    image_data.append('file', e.target.files[0]);
+    image_data.append('upload_preset', 'journalGarden');
+    setUploaded(true);
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/journalsite/image/upload',
+      {
+        method: 'post',
+        body: image_data,
+      }
+    );
+    const file = await res.json();
+    setFormData({ ...formData, image: file.secure_url });
+    setUploaded(false);
+  };
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,14 +45,14 @@ const CreateJournal = ({ addJournal, history }) => {
   return (
     <Fragment>
       <hr />
-      <Link to='/journals'>
+      <a href='/journals'>
         <Button basic color='blue' animated>
           <Button.Content visible>Back To Public Jounals</Button.Content>
           <Button.Content hidden>
             <Icon name='arrow left' />
           </Button.Content>
         </Button>
-      </Link>
+      </a>
       <div className='login well well-lg'>
         <div className='line'></div>
         <h2>Write a New Journal</h2>
@@ -59,16 +78,26 @@ const CreateJournal = ({ addJournal, history }) => {
 
         <Form.Group as={Row}>
           <Form.Label column sm={2}>
-            Image Link
+            Upload Image
           </Form.Label>
           <Col sm={10}>
-            <input
-              className='formControl'
-              name='image'
-              value={image}
-              placeholder='Enter image link for journal'
-              onChange={(e) => onChange(e)}
-            />
+            <input type='file' name='image' onChange={uploadpic} />
+            {uploaded ? (
+              <Fragment>
+                <Spinner animation='border' variant='secondary' />
+                <img
+                  src={image}
+                  alt=''
+                  style={{ width: '150px', height: '150px' }}
+                ></img>
+              </Fragment>
+            ) : (
+              <img
+                src={image}
+                alt=''
+                style={{ width: '150px', height: '150px' }}
+              ></img>
+            )}
           </Col>
         </Form.Group>
         <Form.Group as={Row}>

@@ -151,6 +151,7 @@ export const EditProfile = ({
                       </Form.Control>
                     </Col>
                   </Form.Group>
+
                   <Row>
                     <Col md={{ span: 4, offset: 5 }}>
                       <Button.Group>

@@ -4,7 +4,7 @@ import { getProfile } from '../../actions/profile';
 import { getUserPublicJournals } from '../../actions/journal';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Spinner, ListGroup } from 'react-bootstrap';
+import { ListGroup, Container, Spinner } from 'react-bootstrap';
 import { Button, Grid, Image, Header, Icon } from 'semantic-ui-react';
 const PublicProfile = ({
   getProfile,
@@ -25,7 +25,22 @@ const PublicProfile = ({
   return (
     <Fragment>
       {profile === null || loading ? (
-        <Spinner animation='border' variant='secondary' />
+        <Container>
+          <h1 className='no_profile_page'>
+            This user has not set up profile yet &nbsp;&nbsp;&nbsp;
+            <Spinner animation='grow' variant='primary' size='sm' />
+            &nbsp;&nbsp;
+            <Spinner animation='grow' variant='secondary' size='sm' />
+            &nbsp;&nbsp;
+            <Spinner animation='grow' variant='success' size='sm' />
+            &nbsp;&nbsp;
+            <Spinner animation='grow' variant='danger' size='sm' />
+            &nbsp;&nbsp;
+            <Spinner animation='grow' variant='warning' size='sm' />
+            &nbsp;&nbsp;
+            <Spinner animation='grow' variant='info' size='sm' />
+          </h1>
+        </Container>
       ) : (
         <Fragment>
           <hr />
@@ -129,7 +144,7 @@ const PublicProfile = ({
                   </Grid.Column>
                   <Grid.Column width={3}>
                     <p className='lead'>picture: </p>
-                    <Image src={profile.owner.avatar.url} />
+                    <Image src={profile.owner.avatar} />
                   </Grid.Column>
                 </Grid.Row>
               </Grid>

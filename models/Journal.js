@@ -11,6 +11,8 @@ const JournalSchema = new mongoose.Schema({
   //   },
   image: {
     type: String,
+    default:
+      'https://kangsblackbeltacademy.com/wp-content/uploads/2017/04/default-image.jpg',
   },
   content: {
     type: String,

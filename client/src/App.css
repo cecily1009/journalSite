@@ -240,3 +240,11 @@ hr:before {
 .journal_author:hover {
     font-size: 20px;
 }
+
+.no_profile_page {
+    display: flex;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+}

@@ -73,7 +73,7 @@ export const login = (username, password, history) => async (dispatch) => {
       payload: res.data,
     });
     dispatch(loadUser());
-    history.goBack();
+    history.push('/');
     //return { success: true };
   } catch (err) {
     const errors = err.response.data.errors;

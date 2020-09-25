@@ -31,14 +31,14 @@ const Journal = ({
       ) : (
         <Fragment>
           <hr />
-          <Link to='/journals'>
-            <Button inverted color='blue' animated>
+          <a href='/journals'>
+            <Button basic color='blue' animated>
               <Button.Content visible>Back To Public Jounals</Button.Content>
               <Button.Content hidden>
                 <Icon name='arrow left' />
               </Button.Content>
             </Button>
-          </Link>
+          </a>
           <div className='login well well-lg'>
             <div className='line'></div>
             <h2>Title: {journal.title}</h2>

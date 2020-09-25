@@ -25,7 +25,7 @@ export const JournalItem = ({
                 </Reveal.Content>
                 <Reveal.Content hidden>
                   <Link to={`/profile/user/${author._id}`}>
-                    <Image circular size='tiny' src={author.avatar.url} />
+                    <Image circular size='tiny' src={author.avatar} />
                   </Link>
                 </Reveal.Content>
               </Reveal>
