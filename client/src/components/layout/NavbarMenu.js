@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 export const NavbarMenu = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLink = (
     <Nav>
-      <Nav.Link href='/profile/me'>
+      <Nav.Link as={Link} to='/profile/me'>
         <Button inverted color='olive'>
           My Profile
         </Button>
@@ -43,11 +43,15 @@ export const NavbarMenu = ({ auth: { isAuthenticated, loading }, logout }) => {
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />
       <Navbar.Collapse id='responsive-navbar-nav'>
         <Nav className='mr-auto'>
-          <Nav.Link href='/journals'>Public Journals</Nav.Link>
+          <Nav.Link as={Link} to='/journals'>
+            Public Journals
+          </Nav.Link>
           <Nav.Link as={Link} to='/create-journal'>
             Create your journal
           </Nav.Link>
-          <Nav.Link href='/journals/mine'>Manage your Journals</Nav.Link>
+          <Nav.Link as={Link} to='/journals/mine'>
+            Manage your Journals
+          </Nav.Link>
         </Nav>
         <Nav>
           {!loading && (
