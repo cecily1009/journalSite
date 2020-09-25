@@ -69,14 +69,17 @@ router.get('/:id', async (req, res) => {
 //@access public
 router.get('/:user_id/public_journals', async (req, res) => {
   try {
-    const profile = await Profile.findOne({ owner: req.params.user_id });
+    const profile = await Profile.findOne({
+      owner: req.params.user_id,
+    });
     const journals =
       profile.allPrivate === 'true'
         ? []
         : await Journal.find({ author: req.params.user_id })
             .where('setPrivate')
             .equals('false')
-            .sort({ date: -1 });
+            .sort({ date: -1 })
+            .populate('author', ['avatar']);
 
     res.json(journals);
   } catch (err) {

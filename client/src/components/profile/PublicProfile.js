@@ -29,14 +29,14 @@ const PublicProfile = ({
       ) : (
         <Fragment>
           <hr />
-          <a href='/journals'>
+          <Link to='/journals'>
             <Button inverted color='blue' animated>
               <Button.Content visible>Back To Public Jounals</Button.Content>
               <Button.Content hidden>
                 <Icon name='arrow left' />
               </Button.Content>
             </Button>
-          </a>
+          </Link>
           <div className='login well well-lg'>
             <Header as='h2' color='blue' textAlign='center'>
               <Header.Content>
