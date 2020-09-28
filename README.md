@@ -57,7 +57,6 @@ Journal Garden is a Blog-style MERN-Stack web application for users to keep life
   - [MongoDB](https://www.mongodb.com/)
   - [JWT](https://github.com/auth0/node-jsonwebtoken)
   - [Mongoose](https://mongoosejs.com/)
-  - [passport](http://www.passportjs.org/)
   - [dotenv](https://www.npmjs.com/package/dotenv)
   - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
   - [gravatar](https://en.gravatar.com/)
