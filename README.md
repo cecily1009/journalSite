@@ -1,6 +1,6 @@
 # journalSite
-
 Journal Garden is a Blog-style MERN-Stack web application for users to keep life moments and ideas.
+
 # Live Demo: 
 - [JournalGarden Heroku Version](https://journal-garden.herokuapp.com/)
 - You can log in with the following info:
