@@ -26,7 +26,7 @@ Journal Garden is a Blog-style MERN-Stack web application for users to keep life
 - Manage journals with basic functionalities:
   - Create, edit and delete journals, like/unlike journals
   - Set journal to be private/public
-  - Private journals are invisible to other user
+  - Private journals are invisible to other users
   - Upload a journal picture locally
 - Flash messages responding to users’ interaction with the app
 - Responsive web design
