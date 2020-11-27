@@ -27,7 +27,7 @@ router.get('/me', auth, async (req, res) => {
   }
 });
 
-//@rute GET api/profile/:user_id
+//@route GET api/profile/:user_id
 //@desc Get specific user's profile by user_id
 //@access Public
 
@@ -47,7 +47,7 @@ router.get('/:user_id', async (req, res) => {
   }
 });
 
-//@rute POST api/profile
+//@route POST api/profile
 //@desc Create /update user profile
 //@access Private
 router.post('/', auth, async (req, res) => {

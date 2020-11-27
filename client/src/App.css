@@ -100,6 +100,7 @@ a {
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-top: 1rem;
 }
 
 .register {
@@ -195,10 +196,6 @@ hr:before {
     border-radius: 20px;
 }
 
-.journals {
-    margin-bottom: 8rem;
-}
-
 .btn-group {
     display: flex;
 }
@@ -212,13 +209,6 @@ hr:before {
     margin: 3px auto;
     width: 60%;
     height: 450px;
-}
-
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
 }
 
 .ui.image img,
@@ -237,8 +227,22 @@ hr:before {
     font-size: 0.85714286rem;
 }
 
+.card {
+    margin-bottom: 2rem;
+}
+
+.journals {
+    margin-bottom: 8rem;
+}
+
 .journal_author:hover {
     font-size: 20px;
+}
+
+.journal_image {
+    width: 150px;
+    height: 150px;
+    margin-top: 1rem;
 }
 
 .no_profile_page {
@@ -247,4 +251,11 @@ hr:before {
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
 }

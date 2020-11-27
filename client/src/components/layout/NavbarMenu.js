@@ -59,7 +59,7 @@ export const NavbarMenu = ({ auth: { isAuthenticated, loading }, logout }) => {
           )}
         </Nav>
       </Navbar.Collapse>
-      <a name='top'></a>
+      <a name='top'>.</a>
     </Navbar>
   );
 };

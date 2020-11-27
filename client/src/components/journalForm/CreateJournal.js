@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { addJournal } from '../../actions/journal';
 import { connect } from 'react-redux';
-import { Form, Row, Col, Spinner } from 'react-bootstrap';
+import { Form, Row, Col } from 'react-bootstrap';
 import { Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +18,6 @@ const CreateJournal = ({ addJournal, history }) => {
   const { title, content, image, setPrivate } = formData;
 
   const uploadpic = async (e) => {
-    console.log(e.target.files[0]);
     const image_data = new FormData();
     image_data.append('file', e.target.files[0]);
     image_data.append('upload_preset', 'journalGarden');
@@ -32,7 +31,7 @@ const CreateJournal = ({ addJournal, history }) => {
     );
     const file = await res.json();
     setFormData({ ...formData, image: file.secure_url });
-    setUploaded(false);
+    
   };
 
   const onChange = (e) =>
@@ -81,22 +80,20 @@ const CreateJournal = ({ addJournal, history }) => {
             Upload Image
           </Form.Label>
           <Col sm={10}>
-            <input type='file' name='image' onChange={uploadpic} />
+             <Form.File name='image' onChange={uploadpic}></Form.File>
+            
             {uploaded ? (
               <Fragment>
-                <Spinner animation='border' variant='secondary' />
+                
                 <img
+                  className='journal_image'
                   src={image}
                   alt=''
-                  style={{ width: '150px', height: '150px' }}
                 ></img>
               </Fragment>
             ) : (
-              <img
-                src={image}
-                alt=''
-                style={{ width: '150px', height: '150px' }}
-              ></img>
+              <h2>No choose image </h2>
+           
             )}
           </Col>
         </Form.Group>

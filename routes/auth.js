@@ -8,7 +8,7 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../middleware/auth');
 const User = require('../models/User');
 
-//@rute GET /auth
+//@route GET /auth
 //@desc Test route
 //@access Public
 router.get('/', auth, async (req, res) => {
@@ -20,7 +20,7 @@ router.get('/', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-//@rute Post /auth
+//@route Post /auth
 //@desc Authenticate user & get token
 //@access Public
 router.post(

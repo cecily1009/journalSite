@@ -5,10 +5,6 @@ const JournalSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  //   image: {
-  //     id: String,
-  //     url: String,
-  //   },
   image: {
     type: String,
     default:

@@ -29,7 +29,7 @@ export const EditProfile = ({
 
       allPrivate: loading || !profile.allPrivate ? '' : profile.allPrivate,
     });
-  }, [loading, getMyProfile, getJournals]);
+  }, [loading, getMyProfile, getJournals, profile.allPrivate, profile.bio, profile.status]);
   const { bio, status, allPrivate } = formData;
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });

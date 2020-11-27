@@ -25,7 +25,7 @@ const EditJournal = ({
       image: loading || !journal.image ? '' : journal.image,
       setPrivate: loading || !journal.setPrivate ? '' : journal.setPrivate,
     });
-  }, [loading, getJournal]);
+  }, [loading, journal._id, journal.content, journal.title, journal.image, journal.setPrivate]);
 
   const { title, image, content, setPrivate } = formData;
 
@@ -45,7 +45,7 @@ const EditJournal = ({
     );
     const file = await res.json();
     setFormData({ ...formData, image: file.secure_url });
-    setUploaded(false);
+    
   };
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -130,19 +130,18 @@ const EditJournal = ({
 
             {uploaded ? (
               <Fragment>
-                <Spinner animation='border' variant='secondary' />
-
                 <img
+                  className='journal_image'
                   src={image}
                   alt=''
-                  style={{ width: '150px', height: '150px' }}
+                  
                 ></img>
               </Fragment>
             ) : (
               <img
+                className='journal_image'
                 src={image}
                 alt=''
-                style={{ width: '150px', height: '150px' }}
               ></img>
             )}
           </Col>
