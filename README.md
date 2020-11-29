@@ -51,11 +51,11 @@ Journal Garden is a Blog-style MERN-Stack web application for users to keep life
   - In the directory of the folder JournalsGardern containing the files of the repositiory, open up the terminal and run npm install.
   - In the directory of the folder client, open up the terminal and run npm install.
   - Create a .env file in the root of the project and add the following:
-    - JWT_SECRET=<secret>
-    - CLOUDINARY_APIKEY=<key>
-    - CLOUDINARY_SECRET=<secret>
-    - CLOUDINARY_URL=<url>
-    - DATABASE_URL=<mongoDB_url>
+    - JWT_SECRET=<YOUR_JWT_SECRET>
+    - CLOUDINARY_APIKEY=<YOUR_CLOUDINARY_APIKEY>
+    - CLOUDINARY_SECRET=<YOUR_CLOUDINARY_SECRET>
+    - CLOUDINARY_URL=<YOUR_CLOUDINARY_URL>
+    - DATABASE_URL=<YOUR_MONGODB_URL>
   - Once installation is complete go back to folder JournalsGardern, run npm run journal.
   - Sign up or Login to use the awesome features of the app!
 
