@@ -47,16 +47,18 @@ Journal Garden is a Blog-style MERN-Stack web application for users to keep life
   - Install [MongoDB](https://www.mongodb.com/)
   - Create a cloudinary account to get an API key and secret code
 - Installing
-  - [Download](https://github.com/cecily1009/journalSite/archive/master.zip) the project or clone it to your computer by running git clone https://github.com/cecily1009/journalSite.git on your Git terminal.
-  - In the directory of the folder JournalsGardern containing the files of the repositiory, open up the terminal and run npm install.
-  - In the directory of the folder client, open up the terminal and run npm install.
+  - [Download](https://github.com/cecily1009/journalSite/archive/master.zip) the project or clone it to your computer by running `git clone https://github.com/cecily1009/journalSite.git` on your Git terminal.
+  - In the directory of the folder JournalsGardern containing the files of the repositiory, open up the terminal and run `npm install`.
+  - In the directory of the folder client, open up the terminal and run `npm install`.
   - Create a .env file in the root of the project and add the following:
-    - JWT_SECRET=<YOUR_JWT_SECRET>
-    - CLOUDINARY_APIKEY=<YOUR_CLOUDINARY_APIKEY>
-    - CLOUDINARY_SECRET=<YOUR_CLOUDINARY_SECRET>
-    - CLOUDINARY_URL=<YOUR_CLOUDINARY_URL>
-    - DATABASE_URL=<YOUR_MONGODB_URL>
-  - Once installation is complete go back to folder JournalsGardern, run npm run journal.
+  ```
+  JWT_SECRET=<YOUR_JWT_SECRET>
+  CLOUDINARY_APIKEY=<YOUR_CLOUDINARY_APIKEY>
+  CLOUDINARY_SECRET=<YOUR_CLOUDINARY_SECRET>
+  CLOUDINARY_URL=<YOUR_CLOUDINARY_URL>
+  DATABASE_URL=<YOUR_MONGODB_URL>
+  ```
+  - Once installation is complete go back to folder JournalsGardern, run `npm run journal`.
   - Sign up or Login to use the awesome features of the app!
 
 # Built with
