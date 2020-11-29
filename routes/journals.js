@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
     if (err.kind === 'ObjectId') {
       return res.status(404).json({ msg: 'Journal not found' });
     }
-    console.log(err);
+    
     res.status(500).send('Server error');
   }
 });
@@ -110,7 +110,7 @@ router.post(
       }
       res.json(journal);
     } catch (err) {
-      console.log(err);
+      
       res.status(500).send('Server error');
     }
   }
@@ -195,7 +195,7 @@ router.put(
 
       res.json(journal);
     } catch (err) {
-      console.log(err);
+     
       if (err.kind === 'ObjectId') {
         return res.status(404).json({ msg: 'Journal not found' });
       }
@@ -216,7 +216,7 @@ router.get('/', async (req, res) => {
       .populate('author', ['username', 'avatar']);
     res.json(journals);
   } catch (err) {
-    console.log(err);
+    
     res.status(500).send('Server error');
   }
 });
@@ -241,7 +241,7 @@ router.put('/like/:id', auth, async (req, res) => {
     await journal.save();
     res.json(journal.likes);
   } catch (err) {
-    console.error(err.message);
+    
     res.status(500).send('Server error');
   }
 });
@@ -269,7 +269,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
     await journal.save();
     res.json(journal.likes);
   } catch (err) {
-    console.error(err.message);
+    
     res.status(500).send('Server error');
   }
 });

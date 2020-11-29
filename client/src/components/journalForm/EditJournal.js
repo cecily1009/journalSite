@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { updateJournal, getJournal } from '../../actions/journal';
-import { Form, Row, Col, Spinner } from 'react-bootstrap';
+import { Form, Row, Col } from 'react-bootstrap';
 import { Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';

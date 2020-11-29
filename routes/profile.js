@@ -22,7 +22,7 @@ router.get('/me', auth, async (req, res) => {
     if (err.kind === 'ObjectId') {
       return res.status(404).json({ msg: 'User not found' });
     }
-    console.log(err);
+    
     res.status(500).send('Server error');
   }
 });
@@ -38,7 +38,7 @@ router.get('/:user_id', async (req, res) => {
     }).populate('owner', ['username', '_id', 'avatar']);
     res.json(profile);
   } catch (err) {
-    console.error(err.message);
+    
     if (err.kind == 'ObjectId') {
       return res
         .status(400)
@@ -97,7 +97,7 @@ router.delete('/', auth, async (req, res) => {
 
     res.json({ msg: 'User deleted' });
   } catch (err) {
-    console.error(err.message);
+    
     res.status(500).send('Server Error');
   }
 });

@@ -18,7 +18,6 @@ const Profile_Me = ({
     getJournals();
     getMyProfile();
   }, [getMyProfile, getJournals]);
-
   let sum = 0;
   journals.forEach((journal) => (sum += journal.likes.length));
   return (

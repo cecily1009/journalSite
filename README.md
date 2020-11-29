@@ -57,7 +57,7 @@ Journal Garden is a Blog-style MERN-Stack web application for users to keep life
     - CLOUDINARY_URL=<url>
     - DATABASE_URL=<mongoDB_url>
   - Once installation is complete go back to folder JournalsGardern, run npm run journal.
-  - Sign up to use the awesome features of the app!
+  - Sign up or Login to use the awesome features of the app!
 
 # Built with
 

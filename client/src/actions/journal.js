@@ -42,7 +42,6 @@ export const getJournals = () => async (dispatch) => {
     });
   }
 };
-
 //Get one user's all public journals
 export const getUserPublicJournals = (userId) => async (dispatch) => {
   try {
