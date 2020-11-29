@@ -1,3 +1,4 @@
+
 import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,
@@ -30,7 +31,7 @@ export default function (state = initialState, action) {
     case REGISTER_SUCCESS:
       localStorage.setItem('token', payload.token);
       return {
-        //...is spread syntax allows an iterable(such as array)to be expanded in places.
+        //{...} is spread syntax allows an iterable(such as array)to be expanded in places.
         ...state,
         ...payload,
         isAuthenticated: true,
@@ -43,7 +44,7 @@ export default function (state = initialState, action) {
     case DELETE_ACCOUNT:
       localStorage.removeItem('token');
       return {
-        //...is spread syntax allows an iterable(such as array)to be expanded in places.
+       
         ...state,
         token: null,
         isAuthenticated: false,

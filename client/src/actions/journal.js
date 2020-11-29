@@ -42,6 +42,7 @@ export const getJournals = () => async (dispatch) => {
     });
   }
 };
+
 //Get one user's all public journals
 export const getUserPublicJournals = (userId) => async (dispatch) => {
   try {
@@ -74,7 +75,7 @@ export const getJournal = (id) => async (dispatch) => {
   }
 };
 
-//Add Journal
+//ADD JOURNAL
 export const addJournal = (formData, history) => async (dispatch) => {
   const config = {
     headers: {
@@ -97,7 +98,7 @@ export const addJournal = (formData, history) => async (dispatch) => {
   }
 };
 
-//DELETE Journal
+//DELETE JOURNAL
 export const deleteJournal = (id, history) => async (dispatch) => {
   try {
     await axios.delete(`/journals/${id}`);

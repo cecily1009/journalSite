@@ -74,7 +74,7 @@ export const login = (username, password, history) => async (dispatch) => {
     });
     dispatch(loadUser());
     history.push('/');
-    //return { success: true };
+    
   } catch (err) {
     const errors = err.response.data.errors;
     if (errors) {
