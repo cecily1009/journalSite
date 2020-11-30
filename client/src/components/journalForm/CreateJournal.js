@@ -44,14 +44,14 @@ const CreateJournal = ({ addJournal, history }) => {
   return (
     <Fragment>
       <hr />
-      <a href='/journals'>
+      <Link to='/journals'>
         <Button basic color='blue' animated>
           <Button.Content visible>Back To Public Jounals</Button.Content>
           <Button.Content hidden>
             <Icon name='arrow left' />
           </Button.Content>
         </Button>
-      </a>
+      </Link>
       <div className='login well well-lg'>
         <div className='line'></div>
         <h2>Write a New Journal</h2>
