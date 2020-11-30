@@ -182,7 +182,6 @@ PublicProfile.propTypes = {
   profile: PropTypes.object.isRequired,
   getProfile: PropTypes.func.isRequired,
   getUserPublicJournals: PropTypes.func.isRequired,
-  //   getJournals: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   auth: state.auth,
@@ -192,5 +191,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   getProfile,
   getUserPublicJournals,
-  //   getJournals,
 })(PublicProfile);
