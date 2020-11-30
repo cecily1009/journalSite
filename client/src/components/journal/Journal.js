@@ -50,9 +50,10 @@ const Journal = ({
           <Container fluid>
             <Card border='info'>
               <Card.Img className='imgs' variant='top' src={journal.image} />
+              <article>
               <Card.Body as='div'>
                 <Link to={`/profile/user/${journal.author._id}`}>
-                  <Card.Title className='journal_author'>
+                  <Card.Title className='journal-author'>
                     -- by {journal.author.username}
                   </Card.Title>
                 </Link>
@@ -60,7 +61,7 @@ const Journal = ({
                   posted on{' '}
                   <Moment format='YYYY/MM/DD'>{journal.created}</Moment>
                 </Card.Subtitle>
-                <Card.Text>{journal.content}</Card.Text>
+                <p className="journal-content">{journal.content}</p>
                 {auth.isAuthenticated && (
                   <Fragment>
                     <Button
@@ -101,6 +102,7 @@ const Journal = ({
                   </Fragment>
                 )}
               </Card.Body>
+              </article>
             </Card>
 
             <Button

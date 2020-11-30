@@ -37,7 +37,7 @@ const PublicProfile = ({
             </Button>
           </Link>
           <hr />
-          <h1 className='no_profile_page'>
+          <h1 className='no-profile-page'>
             This user has not set up profile yet &nbsp;&nbsp;&nbsp;
             <Spinner animation='grow' variant='primary' size='sm' />
             &nbsp;&nbsp;

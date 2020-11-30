@@ -132,7 +132,7 @@ const EditJournal = ({
             {uploaded ? (
               <Fragment>
                 <img
-                  className='journal_image'
+                  className='journal-image'
                   src={image}
                   alt=''
                   
@@ -140,7 +140,7 @@ const EditJournal = ({
               </Fragment>
             ) : (
               <img
-                className='journal_image'
+                className='journal-image'
                 src={image}
                 alt=''
               ></img>

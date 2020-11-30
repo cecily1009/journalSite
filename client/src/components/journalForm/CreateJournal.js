@@ -86,7 +86,7 @@ const CreateJournal = ({ addJournal, history }) => {
               <Fragment>
                 
                 <img
-                  className='journal_image'
+                  className='journal-image'
                   src={image}
                   alt=''
                 ></img>

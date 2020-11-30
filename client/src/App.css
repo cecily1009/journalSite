@@ -227,35 +227,35 @@ hr:before {
 
 .card {
     margin-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
 .journals {
     margin-bottom: 8rem;
 }
 
-.journal_author:hover {
+.journal-content {
+    line-height: 2.5rem;
+    text-indent: 4rem;
+    margin: 1.5rem 1.5rem;
+}
+
+.journal-author:hover {
     font-size: 20px;
 }
 
-.journal_image {
+.journal-image {
     width: 150px;
     height: 150px;
-    margin-top: 1rem;
+    margin: 1rem auto;
 }
 
-.no_profile_page {
+.no-profile-page {
     display: flex;
     height: 400px;
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
-}
-
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
 }
 
 .navbar-toggler {
@@ -274,4 +274,11 @@ hr:before {
     width: 100%;
     text-align: inherit;
     font-size: 1.2rem;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 17px;
+    right: 17px;
+    z-index: 1;
 }
