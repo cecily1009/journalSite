@@ -7,9 +7,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const EditJournal = ({
+  getJournal,
   journal: { journal, loading },
   updateJournal,
-  //history,
+  history,
 }) => {
   const [formData, setFormData] = useState({
     title: '',
@@ -18,6 +19,7 @@ const EditJournal = ({
     setPrivate: '',
   });
   useEffect(() => {
+    updateJournal(journal._id);
     getJournal(journal._id);
     setFormData({
       title: loading || !journal.title ? '' : journal.title,
@@ -25,7 +27,7 @@ const EditJournal = ({
       image: loading || !journal.image ? '' : journal.image,
       setPrivate: loading || !journal.setPrivate ? '' : journal.setPrivate,
     });
-  }, [loading, journal._id, journal.content, journal.title, journal.image, journal.setPrivate]);
+  }, [loading, journal._id, journal.content, journal.title, journal.image, journal.setPrivate, updateJournal, getJournal]);
 
   const { title, image, content, setPrivate } = formData;
 
@@ -51,7 +53,7 @@ const EditJournal = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    updateJournal(journal._id, formData);
+    updateJournal(journal._id, formData, history);
   };
   return (
     <Fragment>
