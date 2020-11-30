@@ -23,7 +23,7 @@ export const getMyProfile = () => async (dispatch) => {
   }
 };
 
-//Get other user's profile by userid
+//Get other user's profile by user id
 export const getProfile = (userId) => async (dispatch) => {
   try {
     const res = await axios.get(`/profile/${userId}`);
@@ -39,7 +39,7 @@ export const getProfile = (userId) => async (dispatch) => {
   }
 };
 
-//CREATE OR UPDATE PROFILE
+//Create OR Update current user's profile
 export const createProfile = (formData, history, edit = false) => async (
   dispatch
 ) => {

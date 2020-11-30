@@ -18,7 +18,6 @@ import PublicProfile from './components/profile/PublicProfile';
 import Profile_Me from './components/profile/Profile_Me';
 import CreateProfile from './components/profileForm/CreateProfile';
 import EditProfile from './components/profileForm/EditProfile';
-//import MeProfile from './components/profile/MeProfile';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';

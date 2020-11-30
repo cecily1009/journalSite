@@ -14,7 +14,7 @@ export const Login = ({ login, isAuthenticated, history }) => {
     e.preventDefault();
     login(username, password, history);
   };
-  //Redirect if logged in
+  //Redirect to landing page if logged in
   if (isAuthenticated) {
     return <Redirect to='/' />;
   }

@@ -16,6 +16,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
   const { username, email, password, password2 } = formData;
   const onSubmit = (e) => {
     e.preventDefault();
+    //check if password and confirm password are same
     if (password !== password2) {
       setAlert('Passowrd do not match', 'danger');
     } else {
@@ -46,6 +47,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
               value={username}
               placeholder='Enter username'
               onChange={(e) => onChange(e)}
+              required
             />
           </Form.Group>
           <Form.Group controlId='formGridEmail'>
@@ -57,6 +59,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
               type='email'
               placeholder='Enter email'
               onChange={(e) => onChange(e)}
+              required
             />
           </Form.Group>
 
@@ -69,6 +72,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
               type='password'
               placeholder='Password'
               onChange={(e) => onChange(e)}
+              required
             />
           </Form.Group>
           <Form.Group controlId='formGridPassword'>
@@ -80,6 +84,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
               type='password'
               placeholder='Confirm your Password'
               onChange={(e) => onChange(e)}
+              required
             />
           </Form.Group>
           <Button variant='outline-primary' type='submit' value='Register'>

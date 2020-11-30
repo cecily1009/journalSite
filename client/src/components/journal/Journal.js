@@ -11,6 +11,7 @@ import { Spinner, Container, Card } from 'react-bootstrap';
 import { Icon, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+
 const Journal = ({
   getJournal,
   deleteJournal,
@@ -25,6 +26,7 @@ const Journal = ({
     getJournal(match.params.id);
   }, [getJournal, match.params.id]);
   return (
+    
     <Fragment>
       {journal === null || loading ? (
         <Spinner animation='border' />

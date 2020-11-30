@@ -28,7 +28,7 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
-//Register User
+//User create an account with username, email and password
 export const register = ({ username, email, password }) => async (dispatch) => {
   const config = {
     headers: {
@@ -55,7 +55,7 @@ export const register = ({ username, email, password }) => async (dispatch) => {
   }
 };
 
-//Login user
+//User login with username and password
 export const login = (username, password, history) => async (dispatch) => {
   const config = {
     headers: {

@@ -25,7 +25,7 @@ const EditJournal = ({
       image: loading || !journal.image ? '' : journal.image,
       setPrivate: loading || !journal.setPrivate ? '' : journal.setPrivate,
     });
-  }, [loading, journal._id, journal.content, journal.title, journal.image, journal.setPrivate]);
+  }, [loading, journal._id, journal.content, journal.title, journal.image]);
 
   const { title, image, content, setPrivate } = formData;
 

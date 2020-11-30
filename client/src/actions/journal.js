@@ -27,7 +27,7 @@ export const getPublicJournals = () => async (dispatch) => {
   }
 };
 
-//Get logged in user's all journals
+//Get current user's all journals
 export const getJournals = () => async (dispatch) => {
   try {
     const res = await axios.get('/journals/mine');
@@ -42,7 +42,7 @@ export const getJournals = () => async (dispatch) => {
     });
   }
 };
-//Get one user's all public journals
+//Get one specific user's all public journals
 export const getUserPublicJournals = (userId) => async (dispatch) => {
   try {
     const res = await axios.get(`/journals/${userId}/public_journals`);
@@ -58,7 +58,7 @@ export const getUserPublicJournals = (userId) => async (dispatch) => {
   }
 };
 
-//Get one journal by id
+//Get specific journal by id
 export const getJournal = (id) => async (dispatch) => {
   try {
     const res = await axios.get(`/journals/${id}`);
@@ -74,7 +74,7 @@ export const getJournal = (id) => async (dispatch) => {
   }
 };
 
-//ADD JOURNAL
+//Create a journal
 export const addJournal = (formData, history) => async (dispatch) => {
   const config = {
     headers: {
@@ -97,7 +97,7 @@ export const addJournal = (formData, history) => async (dispatch) => {
   }
 };
 
-//DELETE JOURNAL
+//Delete a specific journal 
 export const deleteJournal = (id, history) => async (dispatch) => {
   try {
     await axios.delete(`/journals/${id}`);
@@ -115,7 +115,7 @@ export const deleteJournal = (id, history) => async (dispatch) => {
   }
 };
 
-//UPDATE JOURNAL
+//Update a journal
 export const updateJournal = (id, formData, history) => async (dispatch) => {
   const config = {
     headers: {
@@ -129,7 +129,7 @@ export const updateJournal = (id, formData, history) => async (dispatch) => {
       payload: res.data,
     });
     dispatch(setAlert('Journal updated', 'success'));
-    history.goBack();
+    history.push(`/journals/${id}`);
   } catch (err) {
     dispatch({
       type: JOURNAL_ERROR,
@@ -141,7 +141,7 @@ export const updateJournal = (id, formData, history) => async (dispatch) => {
   }
 };
 
-//Add like
+//Like a specific journal
 export const addLike = (journalId, history) => async (dispatch) => {
   try {
     const res = await axios.put(`/journals/like/${journalId}`);
@@ -160,7 +160,7 @@ export const addLike = (journalId, history) => async (dispatch) => {
   }
 };
 
-//Remove like
+//Unlike a specific journal
 export const removeLike = (journalId, history) => async (dispatch) => {
   try {
     const res = await axios.put(`/journals/unlike/${journalId}`);
