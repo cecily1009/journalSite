@@ -129,7 +129,7 @@ export const updateJournal = (id, formData, history) => async (dispatch) => {
       payload: res.data,
     });
     dispatch(setAlert('Journal updated', 'success'));
-    history.push(`/journals/${id}`);
+    history.goback();
   } catch (err) {
     dispatch({
       type: JOURNAL_ERROR,
