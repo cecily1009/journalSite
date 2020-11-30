@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 const EditJournal = ({
   journal: { journal, loading },
   updateJournal,
-  history,
+  //history,
 }) => {
   const [formData, setFormData] = useState({
     title: '',
@@ -31,7 +31,6 @@ const EditJournal = ({
 
   const [uploaded, setUploaded] = useState(false);
   const uploadpic = async (e) => {
-    console.log(e.target.files[0]);
     const image_data = new FormData();
     image_data.append('file', e.target.files[0]);
     image_data.append('upload_preset', 'journalGarden');
@@ -52,14 +51,14 @@ const EditJournal = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    updateJournal(journal._id, formData, history);
+    updateJournal(journal._id, formData);
   };
   return (
     <Fragment>
       <hr />
-      <Link to='/journals'>
+      <Link to='/journals/mine'>
         <Button basic color='blue' animated>
-          <Button.Content visible>Back To Public Jounals</Button.Content>
+          <Button.Content visible>Back To My Jounals</Button.Content>
           <Button.Content hidden>
             <Icon name='arrow left' />
           </Button.Content>

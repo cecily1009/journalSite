@@ -11,6 +11,7 @@ export const PublicJournals = ({
 }) => {
   useEffect(() => {
     getPublicJournals();
+    
   }, [getPublicJournals]);
   return (
     <Fragment>

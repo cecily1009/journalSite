@@ -116,7 +116,7 @@ export const deleteJournal = (id, history) => async (dispatch) => {
 };
 
 //Update a journal
-export const updateJournal = (id, formData, history) => async (dispatch) => {
+export const updateJournal = (id, formData) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ export const updateJournal = (id, formData, history) => async (dispatch) => {
       payload: res.data,
     });
     dispatch(setAlert('Journal updated', 'success'));
-    history.goback();
+    //history.goback();
   } catch (err) {
     dispatch({
       type: JOURNAL_ERROR,
