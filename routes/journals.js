@@ -180,6 +180,7 @@ router.put(
       journal.author = req.user.id;
       journal.title = req.body.title;
       journal.content = req.body.content;
+      // if upload image locally, set journal image; otherwise using default image 
       (journal.image = req.body.image !== '' ? req.body.image : Journal.image),
         (journal.setPrivate =
           profile !== null && profile.allPrivate === 'true'
@@ -203,6 +204,7 @@ router.put(
     }
   }
 );
+
 
 //@route get /journals
 //@desc get all public journals
@@ -275,3 +277,12 @@ router.put('/unlike/:id', auth, async (req, res) => {
 });
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
