@@ -31,14 +31,19 @@ export default function (state = initialState, action) {
         journal: payload,
         loading: false,
       };
-    case UPDATE_JOURNAL:
+    
     case ADD_JOURNAL:
       return {
         ...state,
-        journals: [payload, ...state.journals],
+        journals:[...state.journals,payload] ,
         loading: false,
       };
-
+    case UPDATE_JOURNAL:
+      return {
+        ...state,
+        journals:state.journals.map(journal=> journal=journal._id===payload._id?payload:journal),
+        loading:false,
+      };
     case JOURNAL_ERROR:
       return {
         ...state,

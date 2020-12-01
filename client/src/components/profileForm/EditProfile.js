@@ -73,10 +73,10 @@ export const EditProfile = ({
               ))
             ) : (
               <ListGroup>
-                <ListGroup.Item variant='primary'>Journal List:</ListGroup.Item>
+                
                 <ListGroup.Item>No Journals Found</ListGroup.Item>
                 <Button inverted color='blue' className='m-2'>
-                  <Link to='/create-profile'>Create Profile</Link>
+                  <Link to='/create-journal'>Write a journal</Link>
                 </Button>
               </ListGroup>
             )}

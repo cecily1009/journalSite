@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { updateJournal, getJournal } from '../../actions/journal';
+import { updateJournal } from '../../actions/journal';
 import { Form, Row, Col } from 'react-bootstrap';
 import { Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const EditJournal = ({
-  getJournal,
+  
   journal: { journal, loading },
   updateJournal,
   history,
@@ -19,15 +19,15 @@ const EditJournal = ({
     setPrivate: '',
   });
   useEffect(() => {
-    updateJournal(journal._id);
-    getJournal(journal._id);
+    //updateJournal(journal._id);
+    
     setFormData({
       title: loading || !journal.title ? '' : journal.title,
       content: loading || !journal.content ? '' : journal.content,
       image: loading || !journal.image ? '' : journal.image,
       setPrivate: loading || !journal.setPrivate ? '' : journal.setPrivate,
     });
-  }, [loading, journal._id, journal.content, journal.title, journal.image, journal.setPrivate, updateJournal, getJournal]);
+  }, [loading, journal._id, journal.content, journal.title, journal.image, journal.setPrivate]);
 
   const { title, image, content, setPrivate } = formData;
 
@@ -167,12 +167,11 @@ const EditJournal = ({
 
 EditJournal.propTypes = {
   updateJournal: PropTypes.func.isRequired,
-  getJournal: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   journal: state.journal,
 });
 
-export default connect(mapStateToProps, { updateJournal, getJournal })(
+export default connect(mapStateToProps, { updateJournal })(
   EditJournal
 );

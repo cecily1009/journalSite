@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Truncate from 'react-truncate';
 import Moment from 'react-moment';
 export const JournalItem = ({
-  journal: { _id, title, content, image, likes, author, created },
+  article: { _id, title, content, image, likes, author, created },
 }) => {
   return (
     <div className='journals'>
@@ -71,7 +71,7 @@ export const JournalItem = ({
 };
 
 JournalItem.propTypes = {
-  journal: PropTypes.object.isRequired,
+  article: PropTypes.object.isRequired,
 };
 
 export default connect()(JournalItem);

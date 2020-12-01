@@ -15,7 +15,7 @@ router.get('/mine', auth, async (req, res) => {
     const journals = await Journal.find({
       author: req.user.id,
     })
-      .sort({ date: -1 })
+      .sort({ created: 'desc'})
       .populate('author', ['username', 'avatar']);
     res.json(journals);
   } catch (err) {
@@ -60,7 +60,7 @@ router.get('/:user_id/public_journals', async (req, res) => {
         : await Journal.find({ author: req.params.user_id })
             .where('setPrivate')
             .equals('false')
-            .sort({ date: -1 })
+            .sort({ created: -1 })
             .populate('author', ['avatar']);
 
     res.json(journals);
@@ -104,7 +104,7 @@ router.post(
       });
       const journal = await newJournal.save();
       if (profile !== null) {
-        profile.journals.push(journal);
+        profile.journals.push(journal._id);
         await profile.save();
       }
       res.json(journal);
@@ -125,6 +125,7 @@ router.delete('/:id', auth, async (req, res) => {
     const profile = await Profile.findOne({
       owner: req.user.id,
     });
+    
     if (!journal) {
       return res.status(404).json({ msg: 'Journal not found' });
     }
@@ -132,10 +133,12 @@ router.delete('/:id', auth, async (req, res) => {
       return res.status(401).json({ msg: 'User not authorized' });
     }
     await journal.remove();
+    // delete the journal from profile's journal list
     if (profile !== null) {
-      profile.journals.pop(journal);
+      profile.journals.pop(journal._id);
       await profile.save();
     }
+    //send alert message
     res.json({ msg: 'Journal removed' });
   } catch (err) {
     if (err.kind === 'ObjectId') {
@@ -163,37 +166,40 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
-      const journal = await Journal.findById(req.params.id);
+      const update_journal = await Journal.findById(req.params.id);
       const profile = await Profile.findOne({
         owner: req.user.id,
       });
-      if (!journal) {
+      if (!update_journal) {
         return res.status(404).json({ msg: 'Journal not found' });
       }
-      if (journal.author.toString() !== req.user.id) {
+      if (update_journal.author.toString() !== req.user.id) {
         return res.status(401).json({ msg: 'User not authorized' });
       }
-      if (profile !== null) {
-        profile.journals.pop(journal);
-      }
-      journal.author = req.user.id;
-      journal.title = req.body.title;
-      journal.content = req.body.content;
+      
+      update_journal.author = req.user.id;
+      update_journal.title = req.body.title;
+      update_journal.content = req.body.content;
+
       // if upload image locally, set journal image; otherwise using default image 
-      (journal.image = req.body.image !== '' ? req.body.image : Journal.image),
-        (journal.setPrivate =
+
+      (update_journal.image = req.body.image !== '' ? req.body.image : update_journal.image),
+
+      /**
+       * If user enabled "one-key to set all journals be private", 
+       * journal should always be private even if user tries to set the journal to be public.
+       * **/
+      
+        (update_journal.setPrivate =
           profile !== null && profile.allPrivate === 'true'
             ? 'true'
             : req.body.setPrivate !== ''
             ? req.body.setPrivate
-            : Journal.setPrivate),
-        await journal.save();
-      if (profile !== null) {
-        profile.journals.push(journal);
-        await profile.save();
-      }
+            : update_journal.setPrivate),
 
-      res.json(journal);
+          
+        await update_journal.save();
+      res.json(update_journal);
     } catch (err) {
      
       if (err.kind === 'ObjectId') {
@@ -209,11 +215,12 @@ router.put(
 //@desc get all public journals
 //@access public
 router.get('/', async (req, res) => {
+  
   try {
     const journals = await Journal.find()
       .where('setPrivate')
       .equals('false')
-      .sort({ date: -1 })
+      .sort({ created: -1 })
       .populate('author', ['username', 'avatar']);
     res.json(journals);
   } catch (err) {

@@ -67,13 +67,14 @@ router.post('/', auth, async (req, res) => {
       { $set: profileFields },
       { new: true, upsert: true }
     );
+    // one-key to set all journals be private
     if (profile.allPrivate === 'true') {
       profile.journals.forEach(async (journal_id) => {
         const journal = await Journal.findById(journal_id);
         journal.setPrivate = true;
         await journal.save();
       });
-    }
+    } 
 
     res.json(profile);
   } catch (err) {

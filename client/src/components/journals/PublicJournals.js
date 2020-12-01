@@ -28,8 +28,8 @@ export const PublicJournals = ({
           <hr />
           <Container fluid>
             {journals.length > 0 ? (
-              journals.map((journal) => (
-                <JournalItem key={journal._id} journal={journal} />
+              journals.map((article) => (
+                <JournalItem key={article._id} article={article} />
               ))
             ) : (
               <h4>No public journals found...</h4>
