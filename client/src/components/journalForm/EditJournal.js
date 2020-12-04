@@ -19,7 +19,6 @@ const EditJournal = ({
     setPrivate: '',
   });
   useEffect(() => {
-    //updateJournal(journal._id);
     
     setFormData({
       title: loading || !journal.title ? '' : journal.title,
@@ -31,12 +30,12 @@ const EditJournal = ({
 
   const { title, image, content, setPrivate } = formData;
 
-  const [uploaded, setUploaded] = useState(false);
+  
   const uploadpic = async (e) => {
     const image_data = new FormData();
     image_data.append('file', e.target.files[0]);
     image_data.append('upload_preset', 'journalGarden');
-    setUploaded(true);
+    
     const res = await fetch(
       'https://api.cloudinary.com/v1_1/journalsite/image/upload',
       {
@@ -129,22 +128,13 @@ const EditJournal = ({
           <Col sm={10}>
             <Form.File name='image' onChange={uploadpic}></Form.File>
 
-            {uploaded ? (
-              <Fragment>
                 <img
                   className='journal-image'
                   src={image}
                   alt=''
                   
                 ></img>
-              </Fragment>
-            ) : (
-              <img
-                className='journal-image'
-                src={image}
-                alt=''
-              ></img>
-            )}
+             
           </Col>
         </Form.Group>
         <Row>
