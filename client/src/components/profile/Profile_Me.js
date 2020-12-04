@@ -124,10 +124,18 @@ const Profile_Me = ({
             </Fragment>
           ) : (
             <Fragment>
-              <p>You have not yet setup a profile, please add some info</p>
+              <p>You have not yet setup a profile, please add some info...</p>
               <Button as={Link} to='/create-profile' positive>
                 Create Profile
               </Button>
+              
+               <Button
+                    className='m-2'
+                    icon='minus'
+                    content='Delete Account'
+                    color='red'
+                    onClick={() => deleteAccount()}
+                  ></Button>
             </Fragment>
           )}
         </Fragment>

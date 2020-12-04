@@ -44,7 +44,12 @@ const EditJournal = ({
       }
     );
     const file = await res.json();
-    setFormData({ ...formData, image: file.secure_url });
+   
+    // cloudinary allows to transform image by easily modifing url.
+    let index = file.secure_url.indexOf('upload') +6;
+    // set all journal images to be {width:500px; height:500px} 
+    let secure_url = file.secure_url.slice(0,index)+ '/ar_1.5,c_crop/c_fit,h_500,w_500'+ file.secure_url.slice(index);
+    setFormData({ ...formData, image: secure_url });
     
   };
   const onChange = (e) =>
@@ -128,12 +133,12 @@ const EditJournal = ({
           <Col sm={10}>
             <Form.File name='image' onChange={uploadpic}></Form.File>
 
-                <img
-                  className='journal-image'
-                  src={image}
-                  alt=''
-                  
-                ></img>
+              <img
+                className='journal-image'
+                src={image}
+                alt=''
+                
+              ></img>
              
           </Col>
         </Form.Group>
