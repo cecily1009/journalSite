@@ -135,7 +135,7 @@ router.delete('/:id', auth, async (req, res) => {
     await journal.remove();
     // delete the journal from profile's journal list
     if (profile !== null) {
-      profile.journals.pop(journal._id);
+      profile.journals.filter((journal_id)=>journal_id!==journal._id);
       await profile.save();
     }
     //send alert message
@@ -241,7 +241,7 @@ router.put('/like/:id', auth, async (req, res) => {
       journal.likes.filter((like) => like.user.toString() === req.user.id)
         .length > 0
     ) {
-      return res.status(400).json({ msg: 'Journal already liked' });
+      return res.status(400).json({ msg: 'Journal already be liked' });
     }
 
     journal.likes.unshift({ user: req.user.id });

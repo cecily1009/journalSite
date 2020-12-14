@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getMyProfile, deleteAccount } from '../../actions/profile';
 import { getJournals } from '../../actions/journal';
@@ -14,10 +14,12 @@ const Profile_Me = ({
   profile: { profile, loading },
   auth: { user },
 }) => {
+  
   useEffect(() => {
     getJournals();
     getMyProfile();
   }, [getMyProfile, getJournals]);
+  
   let sum = 0;
   journals.forEach((journal) => (sum += journal.likes.length));
   return (

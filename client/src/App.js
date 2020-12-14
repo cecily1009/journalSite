@@ -35,6 +35,8 @@ const App = () => {
   }, []);
 
   return (
+    //Provider takes store as parameter, when reducer updated states in the store, 
+    //provider will pass it down to any connected components who needed to update.
     <Provider store={store}>
       <Router>
         <Fragment>

@@ -45,7 +45,7 @@ const EditJournal = ({
     );
     const file = await res.json();
    
-    // cloudinary allows to transform image by easily modifing url.
+    // cloudinary allows to transform image by simply modifing url.
     let index = file.secure_url.indexOf('upload') +6;
     // set all journal images to be {width:500px; height:500px} 
     let secure_url = file.secure_url.slice(0,index)+ '/ar_1.5,c_crop/c_fit,h_500,w_500'+ file.secure_url.slice(index);
